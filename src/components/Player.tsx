@@ -14,7 +14,7 @@ export default function Player({ token }: { token: string }) {
 
     window.onSpotifyWebPlaybackSDKReady = () => {
       const player = new window.Spotify.Player({
-        name: "Web Playback SDK",
+        name: "SpotiGuesser",
         getOAuthToken: (cb: (...args: any) => void) => {
           cb(token);
         },

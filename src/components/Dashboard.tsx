@@ -5,7 +5,6 @@ export default async function Dashboard({ code }: { code: string | string[] }) {
   const res = await fetch(url);
   const data = await res.json();
   const token = data.access_token;
-  console.log(token);
   return (
     <div>
       <Player token={token} />
