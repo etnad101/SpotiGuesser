@@ -4,11 +4,11 @@ export default async function Dashboard({ code }: { code: string | string[] }) {
   const url = `http://localhost:3000/api/login?code=${code}`;
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
+  const token = data.access_token;
+  console.log(token);
   return (
     <div>
-      <div>{code}</div>
-      <Player token={data.access_token}/>
+      <Player token={token} />
     </div>
   );
 }
