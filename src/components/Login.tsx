@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-const CLIENT_ID = "fa9e42bf5c974f8d869fdd6c43b46c8d";
+const CLIENT_ID = process.env.CLIENT_ID;
 const SCOPE =
   "streaming%20user-read-email%20user-read-private%20user-library-read%20user-read-playback-state%20user-modify-playback-state";
 const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=http://localhost:3000&scope=${SCOPE}`;
 
-export default function Login() {
+export default async function Login() {
   return (
     <div className="flex items-center justify-center h-screen">
       <Link
