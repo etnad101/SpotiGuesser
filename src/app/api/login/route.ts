@@ -1,12 +1,14 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
-export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const praramCode = searchParams.get("code");
-  const code = praramCode ? praramCode : "";
+export async function GET() {
+  const headerList = headers();
+  const headerCode = headerList.get("Authorization");
+  console.log(headerCode);
+  const code = headerCode ? headerCode : "";
 
   const auth = "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET);
 
