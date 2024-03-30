@@ -11,7 +11,7 @@ export default function Controls({ token, className }: any) {
   const playTime = [1000, 3000, 5000, 10000, 15000, 30000];
 
   const play = async () => {
-    const url = "http://localhost:3000/api/play";
+    const url = `${process.env.URL}/api/play`;
     await fetch(url, {
       method: "PUT",
       headers: {
@@ -22,7 +22,7 @@ export default function Controls({ token, className }: any) {
   };
 
   const pause = async () => {
-    const url = "http://localhost:3000/api/pause";
+    const url = `${process.env.URL}/api/pause`;
     await fetch(url, {
       method: "PUT",
       headers: {

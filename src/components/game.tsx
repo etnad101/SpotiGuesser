@@ -1,10 +1,9 @@
 import Controls from "./controls";
 import Guesses from "./guesses";
-import PlayButton from "./playButton";
 import Player from "./player";
 
 export default async function Game({ code }: { code: string }) {
-  const url = `http://localhost:3000/api/login`;
+  const url = `${process.env.URL}/api/login`;
   const res = await fetch(url, {
     headers: {
       Authorization: code,
