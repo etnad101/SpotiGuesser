@@ -3,7 +3,7 @@ import Guesses from "./guesses";
 import Player from "./player";
 
 export default async function Game({ code }: { code: string }) {
-  const url = `${process.env.URL}/api/login`;
+  const url = `${process.env.URL}api/login`;
   const res = await fetch(url, {
     headers: {
       Authorization: code,
@@ -11,8 +11,6 @@ export default async function Game({ code }: { code: string }) {
   });
   const data = await res.json();
   const token = data.access_token;
-
-  console.log(token);
 
   return (
     <div className="bg-spotify-black h-screen">

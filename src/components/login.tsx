@@ -14,7 +14,6 @@ export default async function Login() {
       >
         Login With Spotify
       </Link>
-
       <br />
     </div>
   );
