@@ -5,7 +5,18 @@ export async function PUT() {
   const headersList = headers();
   const token = headersList.get("Authorization");
 
-  const res = await fetch("https://api.spotify.com/v1/me/player/play", {
+  const seekRes = await fetch(
+    "https://api.spotify.com/v1/me/player/seek?position_ms=0",
+    {
+      method: "PUT",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "applicatsion/json",
+      },
+    }
+  );
+
+  const playRes = await fetch("https://api.spotify.com/v1/me/player/play", {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + token,
@@ -14,7 +25,8 @@ export async function PUT() {
   });
 
   const data = {
-    status: "Playback started",
+    seek_status: seekRes.status,
+    play_status: playRes.status,
   };
   return NextResponse.json(data);
 }

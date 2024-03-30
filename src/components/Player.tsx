@@ -35,9 +35,5 @@ export default function Player({ token }: { token: string }) {
     };
   }, []);
 
-  return (
-    <div>
-      <div className="text-white">Player</div>
-    </div>
-  );
+  return <div></div>;
 }

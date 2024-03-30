@@ -1,4 +1,4 @@
-import Dashboard from "@/components/dashboard";
+import Game from "@/components/game";
 import Login from "@/components/login";
 
 const TOKEN_URL = "https://accounts.spotify.com/api/token";
@@ -12,7 +12,7 @@ export default function Home({
 
   return (
     <div className="bg-spotify-black">
-      {code ? <Dashboard code={code} /> : <Login />}
+      {code ? <Game code={code} /> : <Login />}
     </div>
   );
 }
