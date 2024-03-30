@@ -4,14 +4,15 @@ import { useState } from "react";
 import PlayButton from "./playButton";
 import SkipTimeButton from "./skipTimeButton";
 
-export default function Controls({ token, className }: any) {
+export default function Controls({ className, token, uri }: any) {
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(0);
 
   const playTime = [1000, 3000, 5000, 10000, 15000, 30000];
 
   const play = async () => {
-    const url = `${process.env.URL}/api/play`;
+    const url = `${uri}api/play`;
+    console.log(url)
     await fetch(url, {
       method: "PUT",
       headers: {
@@ -22,7 +23,7 @@ export default function Controls({ token, className }: any) {
   };
 
   const pause = async () => {
-    const url = `${process.env.URL}/api/pause`;
+    const url = `${uri}api/pause`;
     await fetch(url, {
       method: "PUT",
       headers: {

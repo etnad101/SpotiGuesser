@@ -15,7 +15,7 @@ export async function PUT() {
   });
 
   const data = {
-    status: "Playback started",
+    status: res.status,
   };
   return NextResponse.json(data);
 }
