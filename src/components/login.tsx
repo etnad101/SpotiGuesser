@@ -6,6 +6,7 @@ const SCOPE =
 const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${process.env.URI}&scope=${SCOPE}`;
 
 export default async function Login() {
+  console.log(AUTH_URL)
   return (
     <div className="flex items-center justify-center h-screen">
       <Link
