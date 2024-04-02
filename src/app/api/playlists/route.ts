@@ -12,15 +12,25 @@ export async function GET() {
   });
 
   const data = await res.json();
-  const playlists: Playlists = {
-    total: data.total,
-    items: [],
-  };
+  console.log(data);
 
-  for (let item of data.items) {
-    const playlist = { name: item.name, imageURL: item.images[0].url };
-    playlists.items.push(playlist);
+  if (res.status == 200) {
+    const playlists: Playlists = {
+      total: data.total,
+      items: [],
+    };
+
+    for (let item of data.items) {
+      const playlist = {
+        name: item.name,
+        imageURL: item.images[0].url,
+        uri: item.uri,
+      };
+      playlists.items.push(playlist);
+    }
+
+    return NextResponse.json(playlists);
   }
 
-  return NextResponse.json(playlists);
+  return NextResponse.json(data);
 }

@@ -20,13 +20,13 @@ export default async function Game({ code }: { code: string }) {
       <h1 className="mb-7 text-center text-5xl font-extrabold text-white">
         SpotiGuesser
       </h1>
-      <PlaylistSelect token={token} />
       <Guesses className="flex justify-center" token={token} />
       <Controls
         className="flex justify-center"
         token={token}
         uri={process.env.URI}
       />
+      <PlaylistSelect token={token} />
       <Player token={token} />
     </div>
   );

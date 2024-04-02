@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default async function PlaylistSelect({ className, token }: any) {
   const url = `${process.env.URI}api/playlists`;
   const res = await fetch(url, {
@@ -14,15 +12,10 @@ export default async function PlaylistSelect({ className, token }: any) {
   for (let i = 0; i < data.total; i++) {
     const playlist = data.items[i];
     playlists.push(
-      <div key={i}>
-        <Image
-          src={playlist.imageURL}
-          width={20}
-          height={20}
-          alt="Playlist Cover"
-        />
-        <div>{playlist.name}</div>
-      </div>,
+      <div key={i} className="flex gap-2">
+        <img className="w-10" src={playlist.imageURL} alt="Playlist Cover" />
+        <div className="text-white">{playlist.name}</div>
+      </div>
     );
   }
 

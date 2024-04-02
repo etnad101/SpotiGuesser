@@ -9,6 +9,7 @@ declare global {
   interface Playlist {
     name: string;
     imageURL: string;
+    uri: string;
   }
 
   interface Playlists {
