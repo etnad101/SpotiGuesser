@@ -1,6 +1,7 @@
 import Controls from "./controls";
 import Guesses from "./guesses";
 import Player from "./player";
+import PlaylistSelect from "./playlistSelect";
 
 export default async function Game({ code }: { code: string }) {
   const url = `${process.env.URI}api/login`;
@@ -19,6 +20,7 @@ export default async function Game({ code }: { code: string }) {
       <h1 className="mb-7 text-center text-5xl font-extrabold text-white">
         SpotiGuesser
       </h1>
+      <PlaylistSelect token={token} />
       <Guesses className="flex justify-center" token={token} />
       <Controls
         className="flex justify-center"

@@ -35,7 +35,7 @@ export default function Controls({ className, token, uri }: any) {
 
   const handlePlay = async () => {
     await play();
-    await setTimeout(pause, playTime[time]);
+    setTimeout(pause, playTime[time]);
   };
 
   const handleSkipTime = () => {
