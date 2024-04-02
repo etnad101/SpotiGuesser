@@ -12,15 +12,19 @@ export default async function Game({ code }: { code: string }) {
   const data = await res.json();
   const token = data.access_token;
 
-  console.log(token)
+  console.log(token);
 
   return (
-    <div className="bg-spotify-black h-screen">
-      <h1 className="text-white font-extrabold text-center text-5xl mb-7">
+    <div className="h-screen bg-spotify-black">
+      <h1 className="mb-7 text-center text-5xl font-extrabold text-white">
         SpotiGuesser
       </h1>
       <Guesses className="flex justify-center" token={token} />
-      <Controls className="flex justify-center" token={token} uri={process.env.URI}/>
+      <Controls
+        className="flex justify-center"
+        token={token}
+        uri={process.env.URI}
+      />
       <Player token={token} />
     </div>
   );

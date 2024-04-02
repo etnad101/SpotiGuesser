@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export default function Guesses({ token, className }: any) {
   const guessValues = ["", null, null, null, null, null];
@@ -8,11 +8,11 @@ export default function Guesses({ token, className }: any) {
 
     guesses.push(
       <div
-        className="text-white text-center border-2 border-spotify-green mb-1 p-1 w-auto min-w-72 min-h-9"
+        className="mb-1 min-h-9 w-auto min-w-72 border-2 border-spotify-green p-1 text-center text-white"
         key={i}
       >
         {guess}
-      </div>
+      </div>,
     );
   }
   return (

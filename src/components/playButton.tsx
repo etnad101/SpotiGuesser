@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function PlayButton({ className, onClick, playing }: any) {
   return (
     <button className={className}>
-      <div className="bg-spotify-green rounded-[100%] w-12 h-12 flex justify-center items-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-[100%] bg-spotify-green">
         <Image
           onClick={() => onClick()}
           width={40}

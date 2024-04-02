@@ -6,12 +6,12 @@ const SCOPE =
 const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${process.env.URI}&scope=${SCOPE}`;
 
 export default async function Login() {
-  console.log(AUTH_URL)
+  console.log(AUTH_URL);
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex h-screen items-center justify-center">
       <Link
         href={AUTH_URL}
-        className="flex text-white items-center justify-center h-16 w-44 bg-spotify-green rounded-xl hover:translate-y-[-3px] transition ease-in"
+        className="flex h-16 w-44 items-center justify-center rounded-xl bg-spotify-green text-white transition ease-in hover:translate-y-[-3px]"
       >
         Login With Spotify
       </Link>

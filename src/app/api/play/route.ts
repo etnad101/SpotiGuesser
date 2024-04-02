@@ -13,7 +13,7 @@ export async function PUT() {
         Authorization: "Bearer " + token,
         "Content-Type": "applicatsion/json",
       },
-    }
+    },
   );
 
   const playRes = await fetch("https://api.spotify.com/v1/me/player/play", {

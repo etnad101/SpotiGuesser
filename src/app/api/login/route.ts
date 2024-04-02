@@ -12,7 +12,7 @@ export async function GET() {
   const auth = "Basic " + btoa(CLIENT_ID + ":" + CLIENT_SECRET);
 
   const URL = `https://accounts.spotify.com/api/token`;
-  const redirect_uri = process.env.URI ? process.env.URI: "";
+  const redirect_uri = process.env.URI ? process.env.URI : "";
 
   const urlencoded = new URLSearchParams({
     grant_type: "authorization_code",

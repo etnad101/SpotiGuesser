@@ -12,7 +12,7 @@ export default function Controls({ className, token, uri }: any) {
 
   const play = async () => {
     const url = `${uri}api/play`;
-    console.log(url)
+    console.log(url);
     await fetch(url, {
       method: "PUT",
       headers: {
