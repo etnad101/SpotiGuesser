@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PlayButton from "./playButton";
 import SkipTimeButton from "./skipTimeButton";
+import GuessBox from "./guessBox";
 
 export default function Controls({ className, token, uri }: any) {
   const [playing, setPlaying] = useState(false);
@@ -45,6 +46,17 @@ export default function Controls({ className, token, uri }: any) {
     }
   };
 
+  const nextSong = async () => {
+    setTime(0);
+    await fetch("https://api.spotify.com/v1/me/player/next", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    setTimeout(pause, playTime[time]);
+  };
+
   return (
     <div className={className}>
       <div className="flex gap-4">
@@ -53,6 +65,12 @@ export default function Controls({ className, token, uri }: any) {
         <div className="text-white">{playTime[time] / 1000}</div>
         <button className="text-white" onClick={() => setTime(0)}>
           Reset
+        </button>
+        <button
+          className="flex h-12 w-16 items-center justify-center rounded-xl bg-spotify-green text-center font-bold text-black"
+          onClick={() => nextSong()}
+        >
+          Next Song
         </button>
       </div>
     </div>

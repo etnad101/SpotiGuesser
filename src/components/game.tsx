@@ -1,4 +1,5 @@
 import Controls from "./controls";
+import GuessBox from "./guessBox";
 import Guesses from "./guesses";
 import Player from "./player";
 import PlaylistSelect from "./playlistSelect";
@@ -27,6 +28,7 @@ export default async function Game({ code }: { code: string }) {
         uri={process.env.URI}
       />
       <PlaylistSelect token={token} />
+      <GuessBox className="text-white" uri={process.env.URI} token={token} />
       <Player token={token} />
     </div>
   );
