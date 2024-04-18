@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function GuessBox({ className, token, uri }: any) {
+export default function GuessBox({ className, token, uri, handleSubmit }: any) {
   const [input, setInput] = useState([]);
   const [autofill, setAutofill] = useState([]);
 
@@ -18,18 +18,30 @@ export default function GuessBox({ className, token, uri }: any) {
     setAutofill(data);
   };
 
-  const searchItems = autofill.map((item, i) => <div key={i}>{item}</div>);
+  const searchItems = autofill.map((item, i) => (
+    <div
+      className="w-60 text-center text-black hover:bg-gray-400"
+      onMouseMove={() => setInput(item)}
+      onClick={() => handleSubmit(item)}
+      key={i}
+    >
+      {item}
+    </div>
+  ));
 
   return (
     <div className={className}>
-      <div>Guess Here</div>
-      <input
-        className="text-black"
-        value={input}
-        onChange={(e: any) => setInput(e.target.value)}
-      ></input>
-      <button onClick={() => search(input)}>Enter</button>
-      <div className="bg-spotify-black">{searchItems}</div>
+      <div className="text-cetner text-white">
+        <input
+          className="text-black"
+          value={input}
+          onChange={(e: any) => setInput(e.target.value)}
+        ></input>
+        <button onClick={() => search(input)}>Enter</button>
+        <div className="bg-spotify-black">
+          <div className="w-60 justify-center bg-white">{searchItems}</div>
+        </div>
+      </div>
     </div>
   );
 }

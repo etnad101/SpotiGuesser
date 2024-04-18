@@ -1,8 +1,16 @@
 "use client";
 
-export default function Guesses({ token, className }: any) {
-  const guessValues = ["", null, null, null, null, null];
+import GuessBox from "./guessBox";
+
+export default function Guesses({ token, className, uri }: any) {
+  const guessValues: any = [null, null, null, null, null, null];
   const guesses: any[] = [];
+
+  const submitGuess = (guess: string) => {
+    console.log(guess);
+    guessValues[0] = guess;
+  };
+
   for (let i = 0; i < 6; i++) {
     const guess = guessValues[i] ? guessValues[i] : "";
 
@@ -15,9 +23,13 @@ export default function Guesses({ token, className }: any) {
       </div>,
     );
   }
+
   return (
     <div className={className}>
-      <div>{guesses}</div>
+      <div className="flex-col">
+        <div>{guesses}</div>
+        <GuessBox token={token} uri={uri} handleSubmit={submitGuess} />
+      </div>
     </div>
   );
 }

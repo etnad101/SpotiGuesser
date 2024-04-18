@@ -1,6 +1,8 @@
 import { headers } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
+const MAX_SEARCH_RESULTS = 6;
+
 export async function GET(request: NextRequest) {
   const headersList = headers();
   const token = headersList.get("Authorization");
@@ -26,8 +28,14 @@ export async function GET(request: NextRequest) {
 
   const tracks: string[] = [];
 
-  for (let track of rawTracks) {
-    tracks.push(track.name);
+  for (let i = 0; i < MAX_SEARCH_RESULTS; i++) {
+    const track = rawTracks[i];
+    const artists = track.artists;
+    let t = track.name + " by ";
+    for (let artist of artists) {
+      t += artist.name + ",";
+    }
+    tracks.push(t);
   }
 
   return NextResponse.json(tracks);
