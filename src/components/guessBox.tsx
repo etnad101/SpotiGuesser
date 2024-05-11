@@ -20,7 +20,7 @@ export default function GuessBox({ className, token, uri, handleSubmit }: any) {
 
   const searchItems = autofill.map((item, i) => (
     <div
-      className="w-60 text-center text-black hover:bg-gray-400"
+      className="w-60 text-center text-black hover:bg-gray-400 border-gray-500"
       onMouseMove={() => setInput(item)}
       onClick={() => handleSubmit(item)}
       key={i}

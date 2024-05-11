@@ -1,5 +1,4 @@
 import Controls from "./controls";
-import GuessBox from "./guessBox";
 import Guesses from "./guesses";
 import Player from "./player";
 import PlaylistSelect from "./playlistSelect";

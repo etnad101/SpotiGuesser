@@ -28,7 +28,7 @@ export default function Guesses({ token, className, uri }: any) {
     <div className={className}>
       <div className="flex-col">
         <div>{guesses}</div>
-        <GuessBox token={token} uri={uri} handleSubmit={submitGuess} />
+        <GuessBox token={token} uri={uri} handleSubmit={() => submitGuess} />
       </div>
     </div>
   );
